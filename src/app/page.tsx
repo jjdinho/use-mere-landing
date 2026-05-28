@@ -8,6 +8,8 @@ import {
   Terminal as TerminalIcon,
   Sparkles,
   Github,
+  Linkedin,
+  Twitter,
   ArrowUpRight,
   Check,
   X,
@@ -384,33 +386,40 @@ function PriceSlider() {
 // Creators
 // ============================================================================
 
-const creators = [
-  { name: "Jake Johnson", handle: "jjdinho", role: "Builder" },
-]
+const creator = {
+  name: "Jake Johnson",
+  avatarHandle: "jjdinho",
+  socials: [
+    { icon: Github, href: "https://github.com/jjdinho", label: "GitHub" },
+    { icon: Twitter, href: "https://x.com/jakesjohnson", label: "X" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/jake-s-johnson/", label: "LinkedIn" },
+  ],
+}
 
 function Creators() {
   return (
-    <div className="grid grid-cols-1 gap-6 max-w-md mx-auto">
-      {creators.map((c) => (
-        <a
-          key={c.handle}
-          href={`https://github.com/${c.handle}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex flex-col items-center text-center gap-4 p-5 rounded-lg border border-border/50 bg-card/30 hover:bg-card/60 hover:border-border transition-colors"
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={`https://github.com/${c.handle}.png`}
-            alt={c.name}
-            className="size-12 rounded-full"
-          />
-          <div>
-            <p className="text-sm font-semibold">{c.name}</p>
-            <p className="text-xs text-muted-foreground">{c.role}</p>
-          </div>
-        </a>
-      ))}
+    <div className="flex flex-col items-center text-center gap-4">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={`https://github.com/${creator.avatarHandle}.png`}
+        alt={creator.name}
+        className="size-12 rounded-full"
+      />
+      <p className="text-sm font-semibold">{creator.name}</p>
+      <div className="flex items-center gap-4">
+        {creator.socials.map(({ icon: Icon, href, label }) => (
+          <a
+            key={label}
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={label}
+            className="text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <Icon className="size-5" />
+          </a>
+        ))}
+      </div>
     </div>
   )
 }
