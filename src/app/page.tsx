@@ -397,7 +397,7 @@ function Creators() {
           href={`https://github.com/${c.handle}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-4 p-5 rounded-lg border border-border/50 bg-card/30 hover:bg-card/60 hover:border-border transition-colors"
+          className="flex flex-col items-center text-center gap-4 p-5 rounded-lg border border-border/50 bg-card/30 hover:bg-card/60 hover:border-border transition-colors"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
