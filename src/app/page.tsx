@@ -385,7 +385,7 @@ function PriceSlider() {
 // ============================================================================
 
 const creators = [
-  { name: "Jake Johnson", handle: "jjdinho", role: "Builder" },
+  { name: "Jake Johnson", handle: "jjdinho" },
 ]
 
 function Creators() {
@@ -405,9 +405,9 @@ function Creators() {
             alt={c.name}
             className="size-12 rounded-full"
           />
-          <div>
+          <div className="flex flex-col items-center gap-1">
             <p className="text-sm font-semibold">{c.name}</p>
-            <p className="text-xs text-muted-foreground">{c.role}</p>
+            <Github className="size-4 text-muted-foreground" aria-label="GitHub" />
           </div>
         </a>
       ))}
