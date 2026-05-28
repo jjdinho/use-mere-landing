@@ -385,13 +385,12 @@ function PriceSlider() {
 // ============================================================================
 
 const creators = [
-  { name: "Jake Johnson", handle: "jjdinho", role: "Co-founder" },
-  { name: "Bernardo", handle: "brnardo", role: "Co-founder" },
+  { name: "Jake Johnson", handle: "jjdinho", role: "Builder" },
 ]
 
 function Creators() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+    <div className="grid grid-cols-1 gap-6 max-w-md mx-auto">
       {creators.map((c) => (
         <a
           key={c.handle}
@@ -718,14 +717,14 @@ export default function LandingPage() {
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-4">
-              Created by two guys
+              Built by a builder
             </h2>
             <p className="text-muted-foreground max-w-xl mx-auto text-left text-pretty">
-              We&apos;re Jake and Bernardo. We set out to build an AI-pilled,
-              agentic, hyperautomated, 1000x humanoid product analytics toolkit
-              but ended up here at the opposite end of the spectrum after
+              I&apos;m Jake. I set out to build an AI-pilled, agentic,
+              hyperautomated, 1000x humanoid product analytics toolkit but
+              ended up here at the opposite end of the spectrum after
               realizing that many people don&apos;t need or want all that,
-              ourselves included.
+              myself included.
             </p>
           </div>
 
