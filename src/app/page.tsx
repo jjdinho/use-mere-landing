@@ -472,7 +472,7 @@ export default function LandingPage() {
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12">
-            Mere is headless analytics that agents love.
+            Mere is headless <strong>product analytics</strong> that agents love.
             <br />
             Collect events and query them. That&apos;s it.
             <br />
