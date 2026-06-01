@@ -459,7 +459,7 @@ export default function LandingPage() {
             operatingSystem: "Web",
             offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
             description:
-              "Mere Analytics is minimal, headless product analytics that agents love. Collect events and query them. That's it.",
+              "Mere Analytics is minimalist, headless product analytics that agents love. Collect events and query them. That's it.",
           }),
         }}
       />
@@ -472,7 +472,7 @@ export default function LandingPage() {
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12">
-            Mere is minimal, headless <strong>product analytics</strong> that agents love.
+            Mere is minimalist, headless <strong>product analytics</strong> that agents love.
             <br />
             Collect events and query them. That&apos;s it.
             <br />

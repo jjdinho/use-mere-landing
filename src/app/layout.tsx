@@ -21,8 +21,8 @@ const pixel = Press_Start_2P({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://usemere.com"),
-  title: "Mere Analytics | Minimal product analytics that agents love.",
-  description: "Mere Analytics is minimal, headless product analytics that agents love. Collect events and query them. That's it.",
+  title: "Mere Analytics | Minimalist product analytics that agents love.",
+  description: "Mere Analytics is minimalist, headless product analytics that agents love. Collect events and query them. That's it.",
   alternates: {
     canonical: "https://usemere.com",
   },
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Mere Analytics | Sometimes less is more",
-    description: "Mere Analytics is minimal, headless product analytics that agents love. Collect events and query them. That's it.",
+    description: "Mere Analytics is minimalist, headless product analytics that agents love. Collect events and query them. That's it.",
     images: [
       {
         url: "/mere-og-image.png",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Mere Analytics | Sometimes less is more",
-    description: "Mere Analytics is minimal, headless product analytics that agents love. Collect events and query them. That's it.",
+    description: "Mere Analytics is minimalist, headless product analytics that agents love. Collect events and query them. That's it.",
     images: [
       {
         url: "/mere-og-image.png",
