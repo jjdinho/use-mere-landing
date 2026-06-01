@@ -9,7 +9,7 @@ function HeaderLogo() {
   const text = "text-lg font-bold tracking-tight select-none"
   return (
     <span className="wordmark-pulse">
-      <span aria-label="Mere" style={pixel} className={`${text} text-foreground`}>
+      <span aria-label="Mere Analytics" style={pixel} className={`${text} text-foreground`}>
         Mere
       </span>
       <span aria-hidden="true" style={pixel} className={`wordmark-pulse__fill wordmark-pulse__fill--1 ${text}`}>

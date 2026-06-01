@@ -459,7 +459,7 @@ export default function LandingPage() {
             operatingSystem: "Web",
             offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
             description:
-              "Headless analytics that agents love. Collect events and then query them. That's it.",
+              "Mere Analytics is minimal, headless product analytics that agents love. Collect events and query them. That's it.",
           }),
         }}
       />
@@ -472,7 +472,7 @@ export default function LandingPage() {
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12">
-            Mere is headless <strong>product analytics</strong> that agents love.
+            Mere is minimal, headless <strong>product analytics</strong> that agents love.
             <br />
             Collect events and query them. That&apos;s it.
             <br />
@@ -726,7 +726,7 @@ export default function LandingPage() {
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-4">
-              Built by a builder
+              Built by someone who needed it
             </h2>
             <p className="text-muted-foreground max-w-xl mx-auto text-left text-pretty">
               I&apos;m Jake. I set out to build an AI-pilled, agentic,
