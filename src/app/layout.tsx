@@ -21,7 +21,7 @@ const pixel = Press_Start_2P({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://usemere.com"),
-  title: "Mere Analytics | Sometimes less is more",
+  title: "Mere Analytics | Minimal product analytics that agents love.",
   description: "Mere Analytics is minimal, headless product analytics that agents love. Collect events and query them. That's it.",
   alternates: {
     canonical: "https://usemere.com",
