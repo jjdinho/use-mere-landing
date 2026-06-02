@@ -34,6 +34,38 @@ function CodeCard({ filename, children }: { filename: string; children: React.Re
   )
 }
 
+function ClaudeTerminalCard({
+  question,
+  toolCalls,
+  response,
+}: {
+  question: string
+  toolCalls: string
+  response: string
+}) {
+  return (
+    <div className="overflow-hidden rounded-lg border border-[#ffffff14] bg-[#1a1d21] shadow-2xl font-mono">
+      <div className="bg-[#ffffff14] px-3 py-2 text-[13px] leading-relaxed text-[#d1d2d3] sm:text-sm">
+        <span className="text-[#8b949e]">›</span>{" "}
+        <span className="text-orange-300">{question}</span>
+      </div>
+      <div className="space-y-3 px-4 py-4 text-[12px] leading-relaxed sm:text-[13px]">
+        <div className="flex items-start gap-2 text-[#d1d2d3]">
+          <span className="mt-1.5 size-2 shrink-0 rounded-full bg-sv-teal-500" />
+          <span>
+            <span className="font-bold">Mere</span>
+            <span className="text-[#8b949e]">({toolCalls})</span>
+          </span>
+        </div>
+        <div className="flex items-start gap-2 text-[#d1d2d3]">
+          <Sparkles className="mt-0.5 size-3.5 shrink-0 text-sv-teal-500" />
+          <span>{response}</span>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 // ============================================================================
 // Hero demo video placeholder
 // ============================================================================
@@ -76,6 +108,27 @@ const playbooks = [
   {
     name: "churn-watch",
     description: "Surface accounts going quiet before they cancel",
+  },
+]
+
+const analyticsExamples = [
+  {
+    question: "What is the typical workflow of my userbase?",
+    toolCalls: "4 tool calls",
+    response:
+      "Most users move from signup to project creation, then install the snippet and check first events within the same session. The biggest drop-off is before snippet install.",
+  },
+  {
+    question: "What does new user growth look like in the last week?",
+    toolCalls: "3 tool calls",
+    response:
+      "New users are up 18% week over week: 412 signups versus 349 the previous week. Tuesday and Wednesday drove most of the increase.",
+  },
+  {
+    question: "What is the adoption rate for feature X?",
+    toolCalls: "5 tool calls",
+    response:
+      "Feature X is used by 31% of active accounts and 46% of accounts created in the last 30 days. Adoption is strongest among teams over 50K events/mo.",
   },
 ]
 
@@ -305,9 +358,10 @@ function PriceSlider() {
             <p>Probably less than $50/month</p>
           </div>
         ) : (
-          <p className="text-sm text-muted-foreground mb-5">
-            Flat rate. Includes everything.
-          </p>
+          <div className="text-sm text-muted-foreground mb-5 space-y-1">
+            <p>Free through 1M events/mo. Flat $9/mo after that.</p>
+            <p>No surprise usage bills.</p>
+          </div>
         )}
         <ul className="flex flex-col items-center gap-1.5 text-sm text-foreground mb-6">
           {[
@@ -339,6 +393,11 @@ function PriceSlider() {
             <div className="cta-pulse__wave cta-pulse__wave--3" />
           </div>
         </div>
+        {!mereRow.label && mereRow.price > 0 && (
+          <p className="text-sm text-muted-foreground mt-4">
+            60-day money-back guarantee.
+          </p>
+        )}
       </div>
 
       {/* Competitors */}
@@ -510,93 +569,58 @@ export default function LandingPage() {
             <p className="text-muted-foreground max-w-xl mx-auto">
               Paste our autocapture snippet, or send events however you want.
               <br />
-              Then query your data with the API or your agent.
+              Then query your data with your agent or directly via the API.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8 max-w-5xl mx-auto">
-            {/* Send */}
+          <div className="max-w-3xl mx-auto space-y-16">
             <div>
               <p className="text-xs uppercase tracking-[0.15em] text-sv-teal-500 font-semibold mb-6 text-center">
-                Send
+                Collect
               </p>
-              <div className="space-y-8">
-                <div>
-                  <CodeCard filename="index.html">
-                    <span className="text-[#8b949e]">&lt;</span>
-                    <span className="text-sv-teal-400">script</span>{" "}
-                    <span className="text-orange-300">src</span>
-                    <span className="text-[#d1d2d3]">=</span>
-                    <span className="text-orange-300">&quot;https://cdn.usemere.com/m.js&quot;</span>{" "}
-                    <span className="text-orange-300">data-key</span>
-                    <span className="text-[#d1d2d3]">=</span>
-                    <span className="text-orange-300">&quot;mere_pub_...&quot;</span>
-                    <span className="text-[#8b949e]">&gt;&lt;/</span>
-                    <span className="text-sv-teal-400">script</span>
-                    <span className="text-[#8b949e]">&gt;</span>
-                  </CodeCard>
-                  <p className="text-sm text-muted-foreground mt-3 text-center">
-                    Drop-in autocapture. Page views, clicks, and forms tracked automatically.
-                  </p>
-                </div>
-
-                <div>
-                  <CodeCard filename="POST /events">
-                    <span className="text-sv-teal-500">$</span>{" "}
-                    <span className="text-[#d1d2d3]">curl -X POST https://api.usemere.com/events \</span>
-                    <br />
-                    <span className="text-[#d1d2d3]">{"  "}-H </span>
-                    <span className="text-orange-300">&quot;Authorization: Bearer mere_sec_...&quot;</span>
-                    <span className="text-[#d1d2d3]"> \</span>
-                    <br />
-                    <span className="text-[#d1d2d3]">{"  "}-d </span>
-                    <span className="text-orange-300">{`'{"event":"signup","plan":"pro"}'`}</span>
-                  </CodeCard>
-                  <p className="text-sm text-muted-foreground mt-3 text-center">
-                    Raw payload to our endpoint. Server-side, mobile, batch jobs.
-                  </p>
-                </div>
-              </div>
+              <CodeCard filename="index.html">
+                <span className="text-[#8b949e]"># paste a single snippet on the frontend</span>
+                <br />
+                <span className="text-[#8b949e]">&lt;</span>
+                <span className="text-sv-teal-400">script</span>{" "}
+                <span className="text-orange-300">src</span>
+                <span className="text-[#d1d2d3]">=</span>
+                <span className="text-orange-300">&quot;https://cdn.usemere.com/m.js&quot;</span>{" "}
+                <span className="text-orange-300">data-key</span>
+                <span className="text-[#d1d2d3]">=</span>
+                <span className="text-orange-300">&quot;mere_pub_...&quot;</span>
+                <span className="text-[#8b949e]">&gt;&lt;/</span>
+                <span className="text-sv-teal-400">script</span>
+                <span className="text-[#8b949e]">&gt;</span>
+                <br />
+                <br />
+                <span className="text-[#8b949e]"># or send custom events</span>
+                <br />
+                <span className="text-sv-teal-500">$</span>{" "}
+                <span className="text-[#d1d2d3]">curl -X POST https://api.usemere.com/events \</span>
+                <br />
+                <span className="text-[#d1d2d3]">{"  "}-H </span>
+                <span className="text-orange-300">&quot;Authorization: Bearer mere_sec_...&quot;</span>
+                <span className="text-[#d1d2d3]"> \</span>
+                <br />
+                <span className="text-[#d1d2d3]">{"  "}-d </span>
+                <span className="text-orange-300">{`'{"event":"signup","plan":"pro"}'`}</span>
+              </CodeCard>
             </div>
 
-            {/* Query */}
             <div>
               <p className="text-xs uppercase tracking-[0.15em] text-sv-teal-500 font-semibold mb-6 text-center">
-                Query
+                Query, Bring your own Agent
               </p>
-              <div className="space-y-8">
-                <div>
-                  <CodeCard filename="POST /query">
-                    <span className="text-sv-teal-500">$</span>{" "}
-                    <span className="text-[#d1d2d3]">curl -X POST https://api.usemere.com/query \</span>
-                    <br />
-                    <span className="text-[#d1d2d3]">{"  "}-H </span>
-                    <span className="text-orange-300">&quot;Authorization: Bearer mere_sec_...&quot;</span>
-                    <span className="text-[#d1d2d3]"> \</span>
-                    <br />
-                    <span className="text-[#d1d2d3]">{"  "}-d </span>
-                    <span className="text-orange-300">{`'{"sql":"SELECT count(*) FROM events"}'`}</span>
-                  </CodeCard>
-                  <p className="text-sm text-muted-foreground mt-3 text-center">
-                    REST endpoint for programmatic access.
-                  </p>
-                </div>
-
-                <div>
-                  <CodeCard filename="claude — mcp mere">
-                    <span className="text-sv-teal-500">$</span>{" "}
-                    <span className="text-[#d1d2d3]">claude</span>{" "}
-                    <span className="text-orange-300">&quot;How many signups this week?&quot;</span>
-                    <br />
-                    <span className="text-[#8b949e]">
-                      <Sparkles className="inline size-3 text-sv-teal-500 mr-1 -mt-0.5" />
-                      [mere/query] → 412 signups in the last 7 days
-                    </span>
-                  </CodeCard>
-                  <p className="text-sm text-muted-foreground mt-3 text-center">
-                    Ask Claude Code via MCP. Your agent queries Mere for you.
-                  </p>
-                </div>
+              <div className="space-y-3">
+                {analyticsExamples.map((example) => (
+                  <ClaudeTerminalCard
+                    key={example.question}
+                    question={example.question}
+                    toolCalls={example.toolCalls}
+                    response={example.response}
+                  />
+                ))}
               </div>
             </div>
           </div>
