@@ -610,7 +610,7 @@ export default function LandingPage() {
 
             <div>
               <p className="text-xs uppercase tracking-[0.15em] text-sv-teal-500 font-semibold mb-6 text-center">
-                Query
+                Query, Bring your own Agent
               </p>
               <div className="space-y-3">
                 {analyticsExamples.map((example) => (
