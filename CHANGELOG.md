@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Mere Analytics landing page with new positioning ("Sometimes less is more" — headless analytics that agents love).
 - Hero section with demo-video placeholder and primary CTA.
-- "Freakin easy to use" section with side-by-side Send / Query code cards (autocapture snippet, raw POST, REST query, Claude/MCP).
+- "Absurdly easy to use" section with side-by-side Send / Query code cards (autocapture snippet, raw POST, REST query, Claude/MCP).
 - "No feature bloat" section with a crossed-out feature list (Heatmaps, Session replay, Feature flags, Onboarding, Surveys, A/B testing, Dashboards, Funnels, Reverse ETL) opposite the two features Mere actually offers, plus a gradient-bordered "Extend it your way" callout.
 - "Adaptable to your workflow" section with placeholder playbook cards linking to `github.com/usemere/playbooks`.
 - "Secure and privacy-focused" section as a single gradient-bordered declarative statement listing the specific PII patterns masked (emails, credit cards, SSNs, phone numbers).
