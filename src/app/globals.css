@@ -446,6 +446,35 @@
   }
 }
 
+/* Pricing slider thumb pulse — radiating ring invites visitors to drag the
+   handle and explore pricing. Stops as soon as they engage (hover or focus). */
+@keyframes slider-thumb-pulse {
+  0% {
+    box-shadow: 0 0 0 0 oklch(0.80 0.08 195 / 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 10px oklch(0.80 0.08 195 / 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 oklch(0.80 0.08 195 / 0);
+  }
+}
+
+.slider-pulse [data-slot="slider-thumb"] {
+  animation: slider-thumb-pulse 2s ease-out infinite;
+}
+
+.slider-pulse:hover [data-slot="slider-thumb"],
+.slider-pulse:focus-within [data-slot="slider-thumb"] {
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slider-pulse [data-slot="slider-thumb"] {
+    animation: none;
+  }
+}
+
 /* Wordmark pulse — pixelated radial reveal of the brand gradient on hover.
    Used by the "Mere" pixel wordmark in the header. */
 .wordmark-pulse {

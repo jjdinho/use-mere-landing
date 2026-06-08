@@ -303,7 +303,7 @@ function PriceSlider() {
       {/* Slider */}
       <div className="mb-10">
         <div className="flex items-baseline justify-between mb-3">
-          <span className="text-xs uppercase tracking-wider text-muted-foreground font-medium">
+          <span className="text-xs tracking-wider text-muted-foreground font-medium">
             Events / month
           </span>
           <span className="text-xs font-mono tabular-nums tracking-wider text-foreground">
@@ -318,7 +318,7 @@ function PriceSlider() {
           // Base UI passes a number for single-thumb sliders even when `value`
           // is an array — guard for either shape.
           onValueChange={(v) => setTierIdx(Array.isArray(v) ? v[0] : v)}
-          className="[&_[data-slot=slider-range]]:bg-sv-teal-500 [&_[data-slot=slider-thumb]]:bg-sv-teal-500 [&_[data-slot=slider-thumb]]:border-sv-teal-400 [&_[data-slot=slider-thumb]]:size-4 [&_[data-slot=slider-thumb]]:ring-sv-teal-500/30"
+          className="slider-pulse [&_[data-slot=slider-range]]:bg-sv-teal-500 [&_[data-slot=slider-thumb]]:bg-sv-teal-500 [&_[data-slot=slider-thumb]]:border-sv-teal-400 [&_[data-slot=slider-thumb]]:size-4 [&_[data-slot=slider-thumb]]:ring-sv-teal-500/30"
         />
         <div className="relative text-lg text-muted-foreground mt-3 font-mono">
           {EVENT_TIERS.map((n, i) => {
@@ -575,7 +575,7 @@ export default function LandingPage() {
 
           <div className="max-w-3xl mx-auto space-y-16">
             <div>
-              <p className="text-xs uppercase tracking-[0.15em] text-sv-teal-500 font-semibold mb-6 text-center">
+              <p className="text-sm tracking-[0.15em] text-sv-teal-500 font-semibold mb-6 text-center">
                 Collect
               </p>
               <CodeCard filename="index.html">
@@ -609,7 +609,7 @@ export default function LandingPage() {
             </div>
 
             <div>
-              <p className="text-xs uppercase tracking-[0.15em] text-sv-teal-500 font-semibold mb-6 text-center">
+              <p className="text-sm tracking-[0.15em] text-sv-teal-500 font-semibold mb-6 text-center">
                 Query, Bring your own Agent
               </p>
               <div className="space-y-3">
@@ -642,7 +642,7 @@ export default function LandingPage() {
           <div className="grid grid-cols-2 gap-8 sm:gap-20 max-w-md mx-auto text-left">
             {/* Bloat we skip */}
             <div>
-              <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground/60 font-semibold mb-4">
+              <p className="text-sm tracking-[0.15em] text-muted-foreground/60 font-semibold mb-4">
                 What we skip
               </p>
               <ul className="space-y-2.5">
@@ -670,7 +670,7 @@ export default function LandingPage() {
 
             {/* What we do */}
             <div>
-              <p className="text-xs uppercase tracking-[0.15em] text-sv-teal-500 font-semibold mb-4">
+              <p className="text-sm tracking-[0.15em] text-sv-teal-500 font-semibold mb-4">
                 What we do
               </p>
               <ul className="space-y-2.5">
