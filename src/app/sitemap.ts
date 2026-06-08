@@ -1,27 +1,9 @@
 import type { MetadataRoute } from "next"
+import { DOC_SLUGS } from "@/lib/docs-nav"
 
 export const dynamic = "force-static"
 
 const BASE_URL = "https://usemere.com"
-
-const DOC_SLUGS = [
-  "",
-  "quick-start",
-  "installation",
-  "auto-track",
-  "custom-events",
-  "identify-users",
-  "ai-agents",
-  "dashboards",
-  "session-recordings",
-  "signals",
-  "slack",
-  "email",
-  "mcp-cli-setup",
-  "mcp-cli",
-  "javascript-sdk",
-  "rest-api",
-]
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [

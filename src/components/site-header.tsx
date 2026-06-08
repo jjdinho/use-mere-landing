@@ -1,5 +1,7 @@
 "use client"
 
+import Image from "next/image"
+import Link from "next/link"
 import { SearchForm } from "@/components/search-form"
 import { buttonVariants } from "@/components/ui/button"
 import {
@@ -17,9 +19,16 @@ export function SiteHeader() {
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
-              <a href="/" className="shrink-0">
-                <img src="/logo.png" alt="Mere Analytics" className="h-6" />
-              </a>
+              <Link href="/" className="shrink-0">
+                <Image
+                  src="/logo.png"
+                  alt="Mere Analytics"
+                  width={137}
+                  height={24}
+                  className="h-6 w-auto"
+                  priority
+                />
+              </Link>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>

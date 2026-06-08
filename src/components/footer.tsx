@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 export function Footer() {
   const currentYear = new Date().getFullYear()
 
@@ -6,7 +8,7 @@ export function Footer() {
       <div className="max-w-5xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-6 text-sm text-muted-foreground">
-            <a href="/" className="wordmark-pulse">
+            <Link href="/" className="wordmark-pulse">
               <span aria-label="Mere" style={{ fontFamily: "var(--font-pixel)" }} className="text-lg font-bold tracking-tight text-foreground select-none">
                 Mere
               </span>
@@ -19,10 +21,10 @@ export function Footer() {
               <span aria-hidden="true" style={{ fontFamily: "var(--font-pixel)" }} className="wordmark-pulse__fill wordmark-pulse__fill--3 text-lg font-bold tracking-tight select-none">
                 Mere
               </span>
-            </a>
+            </Link>
             <a href="/privacy" className="hover:text-foreground transition-colors">Privacy</a>
             <a href="/terms" className="hover:text-foreground transition-colors">Terms</a>
-            <a href="/docs" className="hover:text-foreground transition-colors">Docs</a>
+            <Link href="/docs" className="hover:text-foreground transition-colors">Docs</Link>
           </div>
 
           <div className="flex items-center gap-4 text-muted-foreground">

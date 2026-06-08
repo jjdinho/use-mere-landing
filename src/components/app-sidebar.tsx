@@ -7,87 +7,39 @@ import {
   Sidebar,
   SidebarContent,
 } from "@/components/ui/sidebar"
+import { DOC_NAV } from "@/lib/docs-nav"
 import {
   BookOpenIcon,
-  MousePointerClickIcon,
   SparklesIcon,
-  RadarIcon,
-  PlugIcon,
   CodeIcon,
+  PlaySquareIcon,
 } from "lucide-react"
 
-const data = {
-  navMain: [
-    {
-      title: "Getting Started",
-      url: "/docs",
-      icon: <BookOpenIcon />,
-      isActive: true,
-      items: [
-        { title: "Introduction", url: "/docs" },
-        { title: "Quick Start", url: "/docs/quick-start" },
-        { title: "Installation", url: "/docs/installation" },
-      ],
-    },
-    {
-      title: "Tracking",
-      url: "/docs/auto-track",
-      icon: <MousePointerClickIcon />,
-      items: [
-        { title: "Auto-track", url: "/docs/auto-track" },
-        { title: "Custom events", url: "/docs/custom-events" },
-        { title: "Identify users", url: "/docs/identify-users" },
-      ],
-    },
-    {
-      title: "Insights",
-      url: "/docs/ai-agents",
-      icon: <SparklesIcon />,
-      items: [
-        { title: "AI Agents", url: "/docs/ai-agents" },
-        { title: "Dashboards", url: "/docs/dashboards" },
-        { title: "Session recordings", url: "/docs/session-recordings" },
-      ],
-    },
-    {
-      title: "Signals",
-      url: "/docs/signals",
-      icon: <RadarIcon />,
-      items: [
-        { title: "Overview", url: "/docs/signals" },
-      ],
-    },
-    {
-      title: "Integrations",
-      url: "/docs/slack",
-      icon: <PlugIcon />,
-      items: [
-        { title: "Slack", url: "/docs/slack" },
-        { title: "Email", url: "/docs/email" },
-        { title: "MCP + CLI Setup", url: "/docs/mcp-cli-setup" },
-        { title: "MCP + CLI Reference", url: "/docs/mcp-cli" },
-      ],
-    },
-    {
-      title: "API Reference",
-      url: "/docs/javascript-sdk",
-      icon: <CodeIcon />,
-      items: [
-        { title: "JavaScript SDK", url: "/docs/javascript-sdk" },
-        { title: "REST API", url: "/docs/rest-api" },
-      ],
-    },
-  ],
+const icons = {
+  book: <BookOpenIcon />,
+  code: <CodeIcon />,
+  play: <PlaySquareIcon />,
+  sparkles: <SparklesIcon />,
 }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const items = DOC_NAV.map((section) => ({
+    title: section.title,
+    url: section.slug ? `/docs/${section.slug}` : "/docs",
+    icon: icons[section.icon],
+    items: section.items.map((item) => ({
+      title: item.title,
+      url: item.slug ? `/docs/${item.slug}` : "/docs",
+    })),
+  }))
+
   return (
     <Sidebar
       className="top-(--header-height) h-[calc(100svh-var(--header-height))]!"
       {...props}
     >
       <SidebarContent>
-        <NavMain items={data.navMain} />
+        <NavMain items={items} />
       </SidebarContent>
     </Sidebar>
   )
