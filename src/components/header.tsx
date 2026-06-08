@@ -29,7 +29,7 @@ function HeaderLogo() {
 const navLinks = [
   { href: "/#pricing", label: "Pricing" },
   { href: "/docs", label: "Docs" },
-  { href: "/#playbooks", label: "Playbooks" },
+  { href: "/docs/playbooks", label: "Playbooks" },
 ]
 
 export function Header() {
