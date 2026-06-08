@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Link from "next/link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
@@ -32,7 +33,7 @@ export default function FiveWaysPage() {
             from Point Nine Capital.
           </p>
           <p className="text-muted-foreground/60 text-xs mt-2">
-            Built by <a href="/" className="underline underline-offset-2 hover:text-foreground transition-colors">Mere Analytics</a> — analytics that detect churn signals before customers leave.
+            Built by <Link href="/" className="underline underline-offset-2 hover:text-foreground transition-colors">Mere Analytics</Link> — analytics that detect churn signals before customers leave.
           </p>
         </div>
 

@@ -8,13 +8,11 @@
 
 import satori from "satori"
 import { Resvg } from "@resvg/resvg-js"
-import { readFileSync, writeFileSync } from "node:fs"
+import { writeFileSync } from "node:fs"
 import { join, dirname } from "node:path"
 import { fileURLToPath } from "node:url"
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
-
-const logoBase64 = "data:image/png;base64," + readFileSync(join(__dirname, "..", "public", "logo-512.png")).toString("base64")
 
 // -- Fonts -------------------------------------------------------------------
 async function loadFont(url) {

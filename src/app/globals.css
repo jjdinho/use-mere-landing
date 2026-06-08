@@ -246,6 +246,102 @@
 .scrollbar-hide::-webkit-scrollbar { display: none; }
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 
+.docs-prose {
+  color: var(--foreground);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.docs-prose > * + * {
+  margin-top: 1rem;
+}
+
+.docs-prose h1 {
+  font-size: 2rem;
+  line-height: 1.15;
+  letter-spacing: 0;
+}
+
+.docs-prose h2 {
+  margin-top: 2.5rem;
+  font-size: 1.35rem;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.docs-prose h3 {
+  margin-top: 1.75rem;
+  font-size: 1.05rem;
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+.docs-prose p,
+.docs-prose li,
+.docs-prose td {
+  color: var(--muted-foreground);
+}
+
+.docs-prose a {
+  color: var(--foreground);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.docs-prose ul,
+.docs-prose ol {
+  margin-left: 1.25rem;
+}
+
+.docs-prose ul {
+  list-style: disc;
+}
+
+.docs-prose ol {
+  list-style: decimal;
+}
+
+.docs-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.925rem;
+}
+
+.docs-prose th,
+.docs-prose td {
+  border-bottom: 1px solid var(--border);
+  padding: 0.65rem 1rem 0.65rem 0;
+  text-align: left;
+  vertical-align: top;
+}
+
+.docs-prose th {
+  color: var(--foreground);
+  font-weight: 700;
+}
+
+.docs-prose pre {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: color-mix(in oklch, var(--muted) 72%, transparent);
+  padding: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.docs-prose code {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.9em;
+}
+
+.docs-prose :not(pre) > code {
+  border-radius: 0.35rem;
+  background: var(--muted);
+  color: var(--foreground);
+  padding: 0.12rem 0.35rem;
+}
+
 /* Logo pulse — radiate from center on hover */
 .logo-pulse {
   position: relative;

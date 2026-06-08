@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -38,9 +39,9 @@ export function Header() {
     <header className="relative z-10 py-6">
       <div className="max-w-5xl mx-auto px-6 flex items-center justify-between">
         <div className="flex items-center gap-8">
-          <a href="/">
+          <Link href="/">
             <HeaderLogo />
-          </a>
+          </Link>
 
           <nav className="hidden md:flex items-center gap-6 text-sm">
             {navLinks.map((link) => (
