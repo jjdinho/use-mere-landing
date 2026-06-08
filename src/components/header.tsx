@@ -4,6 +4,8 @@ import { useState } from "react"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { GitHubIcon } from "@/components/github-icon"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 function HeaderLogo() {
   const pixel = { fontFamily: "var(--font-pixel)" } as const
@@ -56,20 +58,33 @@ export function Header() {
           </nav>
         </div>
 
-        <div className="hidden md:flex items-center gap-4 text-sm">
-          <a href="https://app.usemere.com/login" className="text-muted-foreground hover:text-foreground transition-colors">Sign in</a>
-          <Button variant="outline" className="font-bold" nativeButton={false} render={<a href="https://app.usemere.com/register" />}>
-            Get started
-          </Button>
-        </div>
+        <div className="flex items-center gap-3 sm:gap-4">
+          <ThemeToggle />
+          <a
+            href="https://github.com/jjdinho/mere-analytics"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View Mere on GitHub"
+            className="text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <GitHubIcon className="size-5" />
+          </a>
 
-        <button
-          className="md:hidden text-muted-foreground hover:text-foreground transition-colors"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label={mobileOpen ? "Close menu" : "Open menu"}
-        >
-          {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+          <div className="hidden md:flex items-center gap-4 text-sm">
+            <a href="https://app.usemere.com/login" className="text-muted-foreground hover:text-foreground transition-colors">Sign in</a>
+            <Button variant="outline" className="font-bold" nativeButton={false} render={<a href="https://app.usemere.com/register" />}>
+              Get started
+            </Button>
+          </div>
+
+          <button
+            className="md:hidden text-muted-foreground hover:text-foreground transition-colors"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          >
+            {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
