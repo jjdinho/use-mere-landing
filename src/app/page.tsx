@@ -559,12 +559,12 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Freakin easy to use */}
+      {/* Absurdly easy to use */}
       <section id="setup" aria-label="Setup" className="relative py-24 md:py-32 border-t border-border/30">
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-4">
-              Freakin easy to use
+              Absurdly easy to use
             </h2>
             <p className="text-muted-foreground max-w-xl mx-auto">
               Paste our autocapture snippet, or send events however you want.
