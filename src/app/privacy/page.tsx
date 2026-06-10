@@ -55,18 +55,19 @@ export default function PrivacyPage() {
             </ul>
           </section>
 
-          {/* Session recordings */}
+          {/* Masking and redaction */}
           <section>
-            <h2 className="text-lg font-semibold text-foreground mb-3">Session recordings</h2>
+            <h2 className="text-lg font-semibold text-foreground mb-3">Masking and redaction</h2>
             <p className="mb-3">
-              <span className="font-mono text-foreground">Mere Analytics</span> can record DOM-level session replays so you can see how visitors
-              interact with your pages. To protect visitor privacy:
+              <span className="font-mono text-foreground">Mere Analytics</span> is events-only — it captures structured events (page views,
+              clicks, form interactions, and custom events) and does not record session
+              replays or video. To protect visitor privacy:
             </p>
             <ul className="list-disc pl-5 space-y-1">
-              <li>All text input fields are masked by default — the recording captures keystrokes as asterisks.</li>
-              <li>Our script automatically detects and masks patterns that look like email addresses, phone numbers, credit card numbers, and social security numbers in rendered page text.</li>
-              <li>You can extend masking to any element by adding the <code className="text-xs bg-muted px-1.5 py-0.5 rounded font-mono">data-sv-mask</code> attribute.</li>
-              <li>You can exclude entire elements from recording with <code className="text-xs bg-muted px-1.5 py-0.5 rounded font-mono">data-sv-block</code>.</li>
+              <li>Form field values are never captured — only metadata such as field names, types, and whether a field was filled.</li>
+              <li>Text captured from click targets is automatically scanned for patterns that look like email addresses, phone numbers, credit card numbers, and social security numbers, which are masked before the event is sent.</li>
+              <li>You can mask any element&apos;s text by adding the <code className="text-xs bg-muted px-1.5 py-0.5 rounded font-mono">data-mere-mask</code> attribute.</li>
+              <li>You can exclude an element and everything inside it from capture with <code className="text-xs bg-muted px-1.5 py-0.5 rounded font-mono">data-mere-ignore</code>.</li>
             </ul>
           </section>
 
@@ -88,7 +89,7 @@ export default function PrivacyPage() {
               By default, each visitor is assigned a random anonymous UUID. This identifier
               is stored in the visitor&apos;s browser via <code className="text-xs bg-muted px-1.5 py-0.5 rounded font-mono">localStorage</code> and
               contains no personal information. If you choose to call the{" "}
-              <code className="text-xs bg-muted px-1.5 py-0.5 rounded font-mono">Mere Analytics.identify()</code> method
+              <code className="text-xs bg-muted px-1.5 py-0.5 rounded font-mono">mere.identify()</code> method
               in your code, you can attach your own user ID or traits to that visitor. Any
               personally identifiable information sent through <code className="text-xs bg-muted px-1.5 py-0.5 rounded font-mono">identify()</code> is
               your responsibility to disclose in your own privacy policy.
@@ -99,16 +100,17 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-lg font-semibold text-foreground mb-3">Local storage</h2>
             <p className="mb-3">
-              <span className="font-mono text-foreground">Mere Analytics</span> uses <code className="text-xs bg-muted px-1.5 py-0.5 rounded font-mono">localStorage</code> (not cookies)
+              <span className="font-mono text-foreground">Mere Analytics</span> uses browser storage (<code className="text-xs bg-muted px-1.5 py-0.5 rounded font-mono">localStorage</code> and <code className="text-xs bg-muted px-1.5 py-0.5 rounded font-mono">sessionStorage</code>), not cookies,
               to persist a small amount of data in the visitor&apos;s browser. The keys we set are:
             </p>
             <ul className="list-disc pl-5 space-y-1">
-              <li><code className="text-xs bg-muted px-1.5 py-0.5 rounded font-mono">sv_distinct_id</code> — anonymous visitor identifier</li>
-              <li><code className="text-xs bg-muted px-1.5 py-0.5 rounded font-mono">sv_session_id</code> — current session identifier</li>
-              <li><code className="text-xs bg-muted px-1.5 py-0.5 rounded font-mono">sv_props</code> — any properties set via <code className="text-xs bg-muted px-1.5 py-0.5 rounded font-mono">registerOnce()</code></li>
+              <li><code className="text-xs bg-muted px-1.5 py-0.5 rounded font-mono">mere_anonymous_id</code> — anonymous visitor identifier</li>
+              <li><code className="text-xs bg-muted px-1.5 py-0.5 rounded font-mono">mere_session</code> — current session identifier (stored in <code className="text-xs bg-muted px-1.5 py-0.5 rounded font-mono">sessionStorage</code>)</li>
+              <li><code className="text-xs bg-muted px-1.5 py-0.5 rounded font-mono">mere_registered</code> / <code className="text-xs bg-muted px-1.5 py-0.5 rounded font-mono">mere_registered_once</code> — properties set via <code className="text-xs bg-muted px-1.5 py-0.5 rounded font-mono">register()</code> / <code className="text-xs bg-muted px-1.5 py-0.5 rounded font-mono">registerOnce()</code></li>
+              <li><code className="text-xs bg-muted px-1.5 py-0.5 rounded font-mono">mere_opt_out</code> — set only if the visitor opts out of tracking</li>
             </ul>
             <p className="mt-3">
-              No third-party cookies are set. Because we rely only on localStorage, the <span className="font-mono text-foreground">Mere Analytics</span> script is not affected by cookie-consent requirements in most
+              No third-party cookies are set. Because we rely only on browser storage, the <span className="font-mono text-foreground">Mere Analytics</span> script is not affected by cookie-consent requirements in most
               jurisdictions, though you should consult your own legal counsel.
             </p>
           </section>
@@ -132,7 +134,7 @@ export default function PrivacyPage() {
             <ul className="list-disc pl-5 space-y-1">
               <li>
                 <strong className="text-foreground">Opt-out:</strong> You can call{" "}
-                <code className="text-xs bg-muted px-1.5 py-0.5 rounded font-mono">Mere Analytics.opt_out()</code> at
+                <code className="text-xs bg-muted px-1.5 py-0.5 rounded font-mono">mere.optOut()</code> at
                 any time to stop tracking for a specific visitor. This sets a localStorage
                 flag and all subsequent calls become no-ops.
               </li>
@@ -143,10 +145,11 @@ export default function PrivacyPage() {
                 off automatic click and form tracking entirely.
               </li>
               <li>
-                <strong className="text-foreground">Masking:</strong> Use the{" "}
-                <code className="text-xs bg-muted px-1.5 py-0.5 rounded font-mono">data-sv-mask</code> and{" "}
-                <code className="text-xs bg-muted px-1.5 py-0.5 rounded font-mono">data-sv-block</code> attributes
-                to control what appears in session recordings.
+                <strong className="text-foreground">Masking:</strong> Add the{" "}
+                <code className="text-xs bg-muted px-1.5 py-0.5 rounded font-mono">data-mere-mask</code> attribute
+                to mask an element&apos;s text, or{" "}
+                <code className="text-xs bg-muted px-1.5 py-0.5 rounded font-mono">data-mere-ignore</code> to
+                exclude an element from capture entirely.
               </li>
             </ul>
           </section>
@@ -155,10 +158,10 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-lg font-semibold text-foreground mb-3">Data retention</h2>
             <p>
-              How long we keep your data depends on your plan. The free tier retains event
-              and recording data for 30 days. Paid plans offer longer retention windows as
-              described on our pricing page. When data expires, it is permanently deleted
-              from our systems.
+              We retain the event data you collect for up to 2 years, after which it is
+              automatically deleted from our systems. You can delete a project at any time,
+              which immediately and permanently removes its data. If you close your account,
+              we delete your project data within 30 days.
             </p>
           </section>
 

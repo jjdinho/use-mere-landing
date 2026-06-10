@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [Unreleased]
+
+### Fixed
+- Corrected Terms and Privacy billing copy to monthly-only ($9/mo flat above the 1M free tier, custom pricing above 15M), removing the inaccurate annual-billing language.
+- Rewrote the data-retention and masking/autocapture copy to match the product and SDK: a 2-year data-retention window (also surfaced on the pricing card), events-only capture with no session recordings, and the SDK's real masking controls (`data-mere-mask`, `data-mere-ignore`) plus automatic PII masking (emails, phone numbers, credit cards, SSNs).
+- Aligned the SDK API references in the docs and privacy policy with the actual `mere-analytics-js` library: the global object is `mere` (not `Mere`), the browser package is `@mere-analytics/browser`, opt-out is `mere.optOut()`, the real browser-storage keys (`mere_anonymous_id`, `mere_session`, `mere_registered`/`mere_registered_once`, `mere_opt_out`), and dropped the non-existent `apiHost` and `maskAllInputs` config options.
+
 ## [0.2.0] - 2026-05-28
 
 ### Added

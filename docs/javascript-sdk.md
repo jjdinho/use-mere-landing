@@ -13,7 +13,7 @@ The JavaScript SDK runs in the browser and captures product usage events.
 Initializes the SDK.
 
 ```ts
-Mere.init("mere_pub_...", {
+mere.init("mere_pub_...", {
   debug: true,
   autocapture: true,
 })
@@ -24,7 +24,7 @@ Mere.init("mere_pub_...", {
 Captures a custom event.
 
 ```ts
-Mere.capture("plan_selected", {
+mere.capture("plan_selected", {
   plan: "pro",
   billing_cycle: "annual",
 })
@@ -35,7 +35,7 @@ Mere.capture("plan_selected", {
 Associates future events with a known user.
 
 ```ts
-Mere.identify("user_123", {
+mere.identify("user_123", {
   email: "jane@example.com",
   plan: "pro",
 })
@@ -46,7 +46,7 @@ Mere.identify("user_123", {
 Clears the current identity and starts a new anonymous session.
 
 ```ts
-Mere.reset()
+mere.reset()
 ```
 
 ## `register(properties)`
@@ -54,7 +54,7 @@ Mere.reset()
 Adds properties to every future event.
 
 ```ts
-Mere.register({
+mere.register({
   app_version: "2.1.0",
 })
 ```

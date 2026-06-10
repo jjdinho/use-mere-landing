@@ -37,8 +37,8 @@ export default function TermsPage() {
             <h2 className="text-lg font-semibold text-foreground mb-3">What <span className="font-mono">Mere Analytics</span> is</h2>
             <p>
               <span className="font-mono text-foreground">Mere Analytics</span> is a product analytics platform. You add a lightweight script to
-              your website, and we collect usage data — page views, clicks, session
-              recordings, and custom events — so you can understand how people interact with
+              your website, and we collect usage data — page views, clicks, form
+              interactions, and custom events — so you can understand how people interact with
               your product. We also provide AI-powered insights, alerting, and integrations
               with tools like Slack, email, Linear, and GitHub.
             </p>
@@ -78,8 +78,9 @@ export default function TermsPage() {
               The analytics data collected through your <span className="font-mono text-foreground">Mere Analytics</span> project belongs to you.
               We process it on your behalf to provide the service. We do not sell your data
               to third parties. We do not use your data to train machine-learning models
-              outside of your account. If you delete your account, we delete your data — see
-              the Termination section below.
+              outside of your account. We retain your analytics data for up to 2 years, after
+              which it is automatically deleted. If you delete your account, we delete your
+              data — see the Termination section below.
             </p>
           </section>
 
@@ -99,11 +100,12 @@ export default function TermsPage() {
           <section>
             <h2 className="text-lg font-semibold text-foreground mb-3">Pricing and payment</h2>
             <p>
-              <span className="font-mono text-foreground">Mere Analytics</span> offers a free tier with usage limits and paid plans with
-              additional capacity and features. Paid subscriptions are billed monthly or
-              annually depending on the plan you choose. If we change our pricing, we will
-              give you at least 30 days&apos; notice before the new price applies to your
-              account.
+              <span className="font-mono text-foreground">Mere Analytics</span> is free for up to 1 million events per month. Above that, a
+              flat $9 per month covers up to 15 million events, billed monthly; for higher
+              volumes, contact us for custom pricing. You can cancel anytime from your
+              account; cancellation takes effect at the end of the current billing period. If
+              we change our pricing, we will give you at least 30 days&apos; notice before the
+              new price applies to your account.
             </p>
           </section>
 
@@ -135,8 +137,9 @@ export default function TermsPage() {
             <p>
               You can close your account at any time from the dashboard settings. We may also
               suspend or terminate your account if you violate these terms. On termination,
-              we will delete your project data within 30 days. Any prepaid fees for unused
-              billing periods are non-refundable unless required by law.
+              we will delete your project data within 30 days. Except under our 60-day
+              money-back guarantee, prepaid fees for unused billing periods are
+              non-refundable unless required by law.
             </p>
           </section>
 
