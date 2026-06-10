@@ -25,15 +25,15 @@ mere_pub_...
 For a JavaScript or TypeScript app:
 
 ```bash
-npm install @mere/core
+npm install @mere-analytics/browser
 ```
 
 Then initialize Mere once in your app entrypoint:
 
 ```ts
-import Mere from "@mere/core"
+import mere from "@mere-analytics/browser"
 
-Mere.init("mere_pub_...")
+mere.init("mere_pub_...")
 ```
 
 ## 3. Send a custom event
@@ -41,7 +41,7 @@ Mere.init("mere_pub_...")
 Autocapture starts after initialization, but a custom event is the fastest verification path.
 
 ```ts
-Mere.capture("docs_quickstart_completed", {
+mere.capture("docs_quickstart_completed", {
   source: "docs",
 })
 ```
@@ -51,7 +51,7 @@ Mere.capture("docs_quickstart_completed", {
 Open the dashboard and confirm that page views, clicks, and the custom event are arriving. During local setup, enable debug logging:
 
 ```ts
-Mere.init("mere_pub_...", {
+mere.init("mere_pub_...", {
   debug: true,
 })
 ```

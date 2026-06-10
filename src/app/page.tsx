@@ -367,6 +367,7 @@ function PriceSlider() {
           {[
             "Unlimited projects",
             "Unlimited seats",
+            "2-year data retention",
             "We never share or train on your data",
           ].map((item) => (
             <li key={item} className="flex items-center gap-2">

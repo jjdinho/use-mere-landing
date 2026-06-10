@@ -27,13 +27,13 @@ Common options:
 ## Browser SDK
 
 ```bash
-npm install @mere/core
+npm install @mere-analytics/browser
 ```
 
 ```ts
-import Mere from "@mere/core"
+import mere from "@mere-analytics/browser"
 
-Mere.init(process.env.NEXT_PUBLIC_MERE_TOKEN!, {
+mere.init(process.env.NEXT_PUBLIC_MERE_TOKEN!, {
   debug: process.env.NODE_ENV === "development",
 })
 ```
@@ -45,7 +45,7 @@ Use the snippet for static sites or when you cannot change the app bundle.
 ```html
 <script async src="https://cdn.usemere.com/latest/mere.min.js"></script>
 <script>
-  window.Mere?.init("mere_pub_...")
+  window.mere?.init("mere_pub_...")
 </script>
 ```
 
@@ -53,9 +53,7 @@ Use the snippet for static sites or when you cannot change the app bundle.
 
 | Option | Default | Description |
 | --- | --- | --- |
-| `apiHost` | `https://cdn.usemere.com` | SDK host. |
 | `ingestHost` | `https://app.usemere.com` | Event ingest host. |
 | `debug` | `false` | Log captured events in the browser console. |
 | `autocapture` | `true` | Capture page views, clicks, and form submissions. |
-| `maskAllInputs` | `true` | Mask input values in session recordings. |
 

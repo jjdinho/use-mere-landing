@@ -13,9 +13,9 @@ The API reference is split between browser SDK methods and HTTP endpoints.
 Use the browser SDK for client-side event capture:
 
 ```ts
-Mere.init("mere_pub_...")
-Mere.capture("signup_completed")
-Mere.identify("user_123")
+mere.init("mere_pub_...")
+mere.capture("signup_completed")
+mere.identify("user_123")
 ```
 
 Read the [JavaScript SDK reference](/docs/javascript-sdk) for method signatures and payload examples.
